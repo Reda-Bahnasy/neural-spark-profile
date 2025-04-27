@@ -1,9 +1,11 @@
 
 import { ArrowDown } from "lucide-react";
+import ParticleBackground from "./ParticleBackground";
 
 const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center relative overflow-hidden">
+      <ParticleBackground />
       <div className="container-custom">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-fade-in">
@@ -20,9 +22,7 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Background decorative elements */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-blue-100 rounded-full filter blur-3xl opacity-20 -z-10"></div>
-      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-blue-200 rounded-full filter blur-3xl opacity-20 -z-10"></div>
+      {/* Remove old background decorative elements */}
       
       {/* Scroll indicator */}
       <a 
