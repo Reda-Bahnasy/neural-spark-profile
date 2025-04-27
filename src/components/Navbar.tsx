@@ -23,6 +23,14 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const scrollToSection = (id: string) => {
+    setIsMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -32,18 +40,21 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-8 lg:px-16">
         <nav className="flex items-center justify-between py-4">
           <a href="#home" className="flex items-center gap-2">
-            <Code className="text-primary h-7 w-7" />
-            <span className="text-xl font-semibold">AI Portfolio</span>
+            <div className="bg-gradient-to-r from-[#71C9CE] to-[#A6E3E9] h-8 w-8 rounded-full flex items-center justify-center">
+              <span className="text-sm font-bold text-white">RB</span>
+            </div>
+            <span className="text-xl font-semibold">Reda Bahnasy</span>
           </a>
           
           {/* Desktop navigation */}
           <ul className="hidden md:flex items-center space-x-1">
-            <li><a href="#home" className="nav-link">Home</a></li>
-            <li><a href="#about" className="nav-link">About</a></li>
-            <li><a href="#skills" className="nav-link">Skills</a></li>
-            <li><a href="#projects" className="nav-link">Projects</a></li>
-            <li><a href="#experience" className="nav-link">Experience</a></li>
-            <li><a href="#contact" className="nav-link">Contact</a></li>
+            <li><a onClick={() => scrollToSection('home')} className="nav-link cursor-pointer">Home</a></li>
+            <li><a onClick={() => scrollToSection('about')} className="nav-link cursor-pointer">Intro</a></li>
+            <li><a onClick={() => scrollToSection('skills')} className="nav-link cursor-pointer">Services</a></li>
+            <li><a onClick={() => scrollToSection('projects')} className="nav-link cursor-pointer">Projects</a></li>
+            <li><a onClick={() => scrollToSection('experience')} className="nav-link cursor-pointer">Portfolio</a></li>
+            <li><a onClick={() => scrollToSection('skills')} className="nav-link cursor-pointer">Testimonials</a></li>
+            <li><a onClick={() => scrollToSection('contact')} className="nav-link cursor-pointer">Contact</a></li>
           </ul>
           
           {/* Mobile menu button */}
@@ -82,12 +93,13 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t">
             <ul className="flex flex-col py-4">
-              <li><a href="#home" className="block px-4 py-2 hover:text-primary" onClick={toggleMenu}>Home</a></li>
-              <li><a href="#about" className="block px-4 py-2 hover:text-primary" onClick={toggleMenu}>About</a></li>
-              <li><a href="#skills" className="block px-4 py-2 hover:text-primary" onClick={toggleMenu}>Skills</a></li>
-              <li><a href="#projects" className="block px-4 py-2 hover:text-primary" onClick={toggleMenu}>Projects</a></li>
-              <li><a href="#experience" className="block px-4 py-2 hover:text-primary" onClick={toggleMenu}>Experience</a></li>
-              <li><a href="#contact" className="block px-4 py-2 hover:text-primary" onClick={toggleMenu}>Contact</a></li>
+              <li><a onClick={() => scrollToSection('home')} className="block px-4 py-2 hover:text-[#71C9CE] cursor-pointer">Home</a></li>
+              <li><a onClick={() => scrollToSection('about')} className="block px-4 py-2 hover:text-[#71C9CE] cursor-pointer">Intro</a></li>
+              <li><a onClick={() => scrollToSection('skills')} className="block px-4 py-2 hover:text-[#71C9CE] cursor-pointer">Services</a></li>
+              <li><a onClick={() => scrollToSection('projects')} className="block px-4 py-2 hover:text-[#71C9CE] cursor-pointer">Projects</a></li>
+              <li><a onClick={() => scrollToSection('experience')} className="block px-4 py-2 hover:text-[#71C9CE] cursor-pointer">Portfolio</a></li>
+              <li><a onClick={() => scrollToSection('skills')} className="block px-4 py-2 hover:text-[#71C9CE] cursor-pointer">Testimonials</a></li>
+              <li><a onClick={() => scrollToSection('contact')} className="block px-4 py-2 hover:text-[#71C9CE] cursor-pointer">Contact</a></li>
             </ul>
           </div>
         )}

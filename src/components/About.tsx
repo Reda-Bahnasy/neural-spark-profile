@@ -3,15 +3,15 @@ import { Brain } from "lucide-react";
 
 const About = () => {
   return (
-    <section id="about" className="bg-gray-50">
+    <section id="about" className="bg-gray-50 py-20">
       <div className="container-custom">
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           {/* Left side: Personal Image or Illustration */}
           <div className="lg:w-2/5 w-full flex justify-center">
             <div className="relative">
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 flex items-center justify-center">
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-tr from-[#71C9CE] to-[#A6E3E9] flex items-center justify-center">
                 <div className="w-56 h-56 md:w-72 md:h-72 rounded-full bg-white flex items-center justify-center">
-                  <Brain size={80} className="text-primary" />
+                  <Brain size={80} className="text-[#71C9CE]" />
                 </div>
               </div>
             </div>
@@ -22,15 +22,14 @@ const About = () => {
             <h2 className="section-title text-left pb-2 mb-6">About Me</h2>
             <div className="space-y-4 text-gray-700">
               <p>
-                I am an AI Engineer and Data Analyst with a Master's degree in Artificial Intelligence. 
-                My passion for technology and problem-solving drives me to continuously expand my knowledge 
-                and skills in this rapidly evolving field.
+                I'm an aspiring AI Engineer and Data Analyst with a strong foundation in machine learning, 
+                computer vision, and NLP. I specialize in building real-time AI applications using Python, 
+                TensorFlow, and PyTorch, providing valuable insights through data analysis and visualization.
               </p>
               <p>
-                I specialize in developing machine learning models, computer vision systems, 
-                and natural language processing solutions that address real-world challenges. My approach 
-                combines technical expertise with a deep understanding of how AI can positively impact 
-                various industries.
+                My passion for technology and problem-solving drives me to continuously expand my knowledge 
+                and skills in this rapidly evolving field. I believe in the power of artificial intelligence 
+                to transform industries and improve people's lives.
               </p>
               <p>
                 My mission is to harness the power of artificial intelligence to create practical, 

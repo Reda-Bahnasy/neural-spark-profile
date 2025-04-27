@@ -1,5 +1,5 @@
 
-import { Code } from "lucide-react";
+import { Code, Github, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,31 +9,33 @@ const Footer = () => {
       <div className="container-custom">
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-2 mb-4">
-            <Code className="h-6 w-6 text-primary" />
-            <span className="text-xl font-semibold">AI Portfolio</span>
+            <div className="bg-gradient-to-r from-[#71C9CE] to-[#A6E3E9] h-8 w-8 rounded-full flex items-center justify-center">
+              <span className="text-sm font-bold text-white">RB</span>
+            </div>
+            <span className="text-xl font-semibold">Reda Bahnasy</span>
           </div>
           
           <div className="text-center max-w-md mx-auto mb-6">
             <p className="text-gray-400">
-              Passionate AI Engineer and Data Analyst specializing in machine learning, 
+              Data Analyst and AI Engineer specializing in machine learning, 
               computer vision, and data-driven solutions.
             </p>
           </div>
           
           <div className="flex gap-6 mb-8">
-            <a href="#" className="text-gray-400 hover:text-primary transition-colors">
-              LinkedIn
+            <a href="https://www.linkedin.com/in/reda-bahnasy-0ba601193/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#71C9CE] transition-colors">
+              <Linkedin />
             </a>
-            <a href="#" className="text-gray-400 hover:text-primary transition-colors">
-              GitHub
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#71C9CE] transition-colors">
+              <Github />
             </a>
-            <a href="#" className="text-gray-400 hover:text-primary transition-colors">
-              Email
+            <a href="mailto:Reda_Bahnasy@icloud.com" className="text-gray-400 hover:text-[#71C9CE] transition-colors">
+              <Mail />
             </a>
           </div>
           
           <div className="text-gray-500 text-sm">
-            <p>© {currentYear} AI Portfolio. All rights reserved.</p>
+            <p>© {currentYear} Reda Bahnasy. All rights reserved.</p>
           </div>
         </div>
       </div>

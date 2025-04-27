@@ -27,13 +27,15 @@ const ParticleBackground = () => {
       directionX: number;
       directionY: number;
       size: number;
+      color: string;
 
       constructor(x: number, y: number) {
         this.x = x;
         this.y = y;
-        this.directionX = (Math.random() - 0.5) * 0.5;
-        this.directionY = (Math.random() - 0.5) * 0.5;
-        this.size = Math.random() * 2;
+        this.directionX = (Math.random() - 0.5) * 0.7;
+        this.directionY = (Math.random() - 0.5) * 0.7;
+        this.size = Math.random() * 3 + 1;
+        this.color = 'rgba(113, 201, 206, 0.5)'; // Teal/mint color with transparency
       }
 
       update() {
@@ -52,13 +54,13 @@ const ParticleBackground = () => {
         if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(169, 169, 169, 0.5)';
+        ctx.fillStyle = this.color;
         ctx.fill();
       }
     }
 
     // Create particle array
-    const particleCount = 50;
+    const particleCount = Math.min(100, Math.floor(window.innerWidth / 20)); // Responsive number of particles
     const particles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
@@ -75,11 +77,14 @@ const ParticleBackground = () => {
       const dx = p1.x - p2.x;
       const dy = p1.y - p2.y;
       const distance = Math.sqrt(dx * dx + dy * dy);
+      const maxDistance = 200;
 
-      if (distance < 200) {
+      if (distance < maxDistance) {
         ctx.beginPath();
-        ctx.strokeStyle = `rgba(169, 169, 169, ${0.15 - distance/1000})`;
-        ctx.lineWidth = 0.5;
+        // Gradient opacity based on distance
+        const opacity = 0.2 * (1 - distance / maxDistance);
+        ctx.strokeStyle = `rgba(113, 201, 206, ${opacity})`;
+        ctx.lineWidth = 0.8;
         ctx.moveTo(p1.x, p1.y);
         ctx.lineTo(p2.x, p2.y);
         ctx.stroke();
@@ -107,9 +112,24 @@ const ParticleBackground = () => {
 
     animate();
 
+    // Handle mouse interaction
+    const mouseMoveHandler = (e: MouseEvent) => {
+      // Create a temporary particle at mouse position for visual effect
+      const mouseParticle = new Particle(e.x, e.y);
+      mouseParticle.size = 0; // Make it invisible
+      
+      // Connect to nearby particles
+      particles.forEach(particle => {
+        drawLines(mouseParticle, particle);
+      });
+    };
+
+    canvas.addEventListener('mousemove', mouseMoveHandler);
+
     // Cleanup
     return () => {
       window.removeEventListener('resize', setCanvasSize);
+      canvas.removeEventListener('mousemove', mouseMoveHandler);
     };
   }, []);
 
