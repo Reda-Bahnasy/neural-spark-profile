@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from "react";
-import { Code, Database, ChartBar, Layers, Microscope } from "lucide-react";
+import { Code, Database, ChartBar, Layers, Microscope, Brain } from "lucide-react";
 
 interface Skill {
   category: string;
